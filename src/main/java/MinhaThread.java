@@ -27,6 +27,9 @@ public class MinhaThread extends Thread{
                 Document document = Jsoup.connect(link).ignoreContentType(true).get();
 
                 //Pegando as imagens do HTML
+                /*remember that some images can have their source links in different types of fields, like 'data-src', that is a variant of src
+                so the ideal would be you verify the existence of src fields in a generic way! 
+                */
                 Elements linksOnPage = document.select("img[src]");
 
                 for (Element page : linksOnPage) {
